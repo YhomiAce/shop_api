@@ -62,6 +62,12 @@ const resendCodeValidation = () => {
   ];
 };
 
+const cartValidation = () => {
+  return [
+    check("productId", "ProductId is required").notEmpty()
+  ];
+};
+
 
 module.exports = {
   validate,
@@ -70,4 +76,5 @@ module.exports = {
   activationValidation,
   resendCodeValidation,
   resetValidation,
+  cartValidation
 };

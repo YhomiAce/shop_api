@@ -8,7 +8,9 @@ connectDB();
 
 // Init middleware
 app.use(cors());
+app.use('/uploads',express.static('uploads'));
 app.use(express.json({extend: false}));
+app.use(express.urlencoded({extended: false}))
 app.use(morgan("combined"));
 
 app.get('/', ( req, res ) => res.send('Api running'));
