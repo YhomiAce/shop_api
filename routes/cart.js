@@ -5,7 +5,8 @@ const CartController = require('../controllers/CartController');
 const Auth = require('../middleware/Auth');
 const { 
     validate, 
-    cartValidation
+    cartValidation,
+    checkoutValidation
 } = require('../helpers/validators');
 
 // @route  api/cart
@@ -31,5 +32,11 @@ router.delete('/cart/clear', Auth, CartController.clearCart);
 // @access Private
 // @desc list cart items
 router.get('/carts', Auth, CartController.listCartItems);
+
+// @route  api/cart/checkout
+// @method POST
+// @access private
+// @desc add to cart
+router.post('/cart/checkout', checkoutValidation(), validate, Auth, CartController.checkout);
 
 module.exports = router;

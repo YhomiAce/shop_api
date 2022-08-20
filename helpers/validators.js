@@ -68,6 +68,12 @@ const cartValidation = () => {
   ];
 };
 
+const checkoutValidation = () => {
+  return [
+    check("cartIds", "Cart Ids is required").isArray()
+  ];
+};
+
 
 module.exports = {
   validate,
@@ -76,5 +82,6 @@ module.exports = {
   activationValidation,
   resendCodeValidation,
   resetValidation,
-  cartValidation
+  cartValidation,
+  checkoutValidation
 };
